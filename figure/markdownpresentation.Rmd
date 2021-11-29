@@ -1,0 +1,56 @@
+---
+title: "Presentation"
+author: "Aaron Schram"
+date: "11/28/2021"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Biographical
+
+- Hello, I am Aaron Schram. My birthday is February 13th. I grew up in zimmerman, Minnesota.
+- Program: Joint MS/PHD Statistics
+- Graduation Date: Spring 2023
+
+## Favorite Animal
+
+```{r picture,echo=FALSE, results='hide',message=FALSE}
+library("jpeg")
+
+x <- "https://www.rainforest-rescue.org/photos/article/facebook/fb/en/flughund-mauritius.jpg"
+
+download.file(x,'x.jpg', mode = 'wb')
+jj <- readJPEG("x.jpg",native=TRUE)
+plot(0:1,0:1,type="n",ann=FALSE,axes=FALSE)
+rasterImage(jj,0,0,1,1)
+
+
+```
+
+
+
+## Slide with R Graphic
+
+```{r palmerpenguins,echo=FALSE, results='hide',message=FALSE,warning=FALSE}
+
+if (!"palmerpenguins" %in% installed.packages()) {
+  remotes::install_github("allisonhorst/palmerpenguins")
+}
+library(palmerpenguins)
+library(ggplot2)
+
+ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, z=flipper_length_mm, color = sex)) + 
+  geom_point()+
+  scale_color_manual(values = c("male" = "Pink",
+                               "female" = "blue")) + 
+  geom_text(aes(label=species),hjust=0, vjust=0) +
+  geom_line()+coord_polar()+theme_classic()+
+  xlab("Body Mass") + ylab("Bill Length") + ggtitle("Penguin Body Mass by Bill Length Polar Plot")
+```
+
+## CV Link
+https://www.overleaf.com/read/fgnsnnwtqsdv

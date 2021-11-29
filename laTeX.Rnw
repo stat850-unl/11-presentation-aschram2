@@ -1,0 +1,50 @@
+\documentclass{beamer}
+%Information to be included in the title page:
+\usepackage{graphicx}
+\title{Presentation for Stat 850}
+\author{Aaron Schram}
+\institute{Overleaf}
+\date{2021}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Biographical}
+Hello, I am Aaron Schram. My birthday is February 13th. I grew up in zimmerman, Minnesota.
+Program: Joint MS/PHD Statistics
+ Graduation Date: Spring 2023
+\end{frame}
+
+\begin{frame}
+\frametitle{Favorite Animal}
+\begin{figure}
+\includegraphics{x.jpg}
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{R Graphic}
+This graphic below is my favorite, because it is just so terrible to look at.
+\end{frame}
+<<Graphic,echo=FALSE, results='hide',message=FALSE,warning=FALSE,fig.height=6>>=
+if (!"palmerpenguins" %in% installed.packages()) {
+  remotes::install_github("allisonhorst/palmerpenguins")
+}
+library(palmerpenguins)
+library(ggplot2)
+ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, z=flipper_length_mm, color = sex)) +
+  geom_point()+
+  scale_color_manual(values = c("male" = "Pink",
+                               "female" = "blue")) +
+  geom_text(aes(label=species),hjust=0, vjust=0) +
+  geom_line()+coord_polar()+theme_classic()+
+  xlab("Body Mass") + ylab("Bill Length") + ggtitle("Penguin Body Mass by Bill Length Polar Plot")
+@
+\begin{frame}
+\frametitle{CV}
+https://www.overleaf.com/read/fgnsnnwtqsdv
+\end{frame}
+
+
+\end{document}
