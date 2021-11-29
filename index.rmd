@@ -1,0 +1,5 @@
+LaTex Presentation:
+https://github.com/stat850-unl/11-presentation-aschram2/blob/master/laTeX.pdf
+
+Rmarkdown Presentations:
+https://github.com/stat850-unl/11-presentation-aschram2/blob/master/figure/markdownpresentation.pdf
